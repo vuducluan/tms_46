@@ -21,3 +21,9 @@
 
 en:
   hello: "Hello world"
+  sign_up: "Sign up"
+  app_name: "Framgia Training System"
+  rails: "Rails"
+  contact: "Contact"
+  contact_page: "Contact page"
+  contact_at: "Contact at"
