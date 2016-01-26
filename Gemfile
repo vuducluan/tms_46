@@ -17,6 +17,7 @@ gem "bcrypt", "~> 3.1.7"
 gem "config"
 gem "devise"
 gem "cancancan"
+gem "table_print"
 
 group :development, :test do
   gem "byebug"

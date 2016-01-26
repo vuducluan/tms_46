@@ -38,3 +38,5 @@ en:
   characters_minimum: "characters minimum"
   access_denied: "Access denied."
   courses: "Listing all courses"
+  name: "Name: "
+  email: "Email: "
