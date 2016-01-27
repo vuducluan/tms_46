@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  enum role: [:trainee, :supervisor]
   devise :database_authenticatable, :registerable, :rememberable, :validatable,
     :timeoutable
   has_many :user_courses
@@ -6,5 +7,5 @@ class User < ActiveRecord::Base
   has_many :user_subjects
   has_many :subjects, through: :user_subjects, dependent: :destroy
   has_many :activities, dependent: :destroy
-  has_many :tasks, dependent: :destroy  
+  has_many :tasks, dependent: :destroy
 end
