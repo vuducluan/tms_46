@@ -30,3 +30,4 @@ en:
   profile: "Profile"
   sign_in: "Sign in"
   sign_out: "Sign out"
+  access_denied: "Access Denied!"

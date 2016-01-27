@@ -16,6 +16,7 @@ gem "kaminari"
 gem "bcrypt", "~> 3.1.7"
 gem "config"
 gem "devise"
+gem "cancancan"
 
 group :development, :test do
   gem "byebug"
