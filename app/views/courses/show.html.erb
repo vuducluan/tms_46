@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-2">
+    <%= image_tag Settings.course.course_image, size: Settings.course.size %>
+    <h2><%= @course.name %></h2>
+    <i><%= t "ago", time: time_ago_in_words(@course.created_at) %></i>
+  </div>
+  <div class="col-md-10">
+    <h2><%= t "overview" %></h2>
+    <hr />
+    <p><%= @course.instruction %></p>
+    <h2><%= t "subjects" %></h2>
+    <hr />
+    <%= render @subjects %>
+    <%= paginate @subjects %>
+  </div>
+</div>

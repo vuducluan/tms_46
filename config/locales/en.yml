@@ -40,3 +40,6 @@ en:
   courses: "Listing all courses"
   name: "Name: "
   email: "Email: "
+  ago: "%{time} ago"
+  overview: "Overview"
+  subjects: "Subjects in course"

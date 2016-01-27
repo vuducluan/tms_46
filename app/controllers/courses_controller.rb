@@ -4,4 +4,8 @@ class CoursesController < ApplicationController
   def index
     @courses = @courses.page(params[:page]).per Settings.per_page
   end
+
+  def show
+    @subjects = @course.subjects.page(params[:page]).per Settings.per_page
+  end
 end
