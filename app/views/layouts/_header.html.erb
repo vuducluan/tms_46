@@ -13,7 +13,7 @@
                 <b class="caret"></b>
               </a>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
-                <li><%= link_to t("profile"), "#" %></li>
+                <li><%= link_to t("profile"), current_user %></li>
                 <li><%= link_to t("setting"), edit_user_registration_path %></li>
                 <li class="divider"></li>
                 <li><%= link_to t("sign_out"), destroy_user_session_path, method: :delete %></li>
