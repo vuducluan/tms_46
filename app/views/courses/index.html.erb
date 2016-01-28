@@ -3,6 +3,7 @@
   <div class="wrap">
     <h1><%= link_to course.name, course %></h1>
     <%= image_tag Settings.course.course_image, size: Settings.course.size %>
+    <%= link_to t("course_member"), course_user_courses_path(course) %>
   </div>
 <% end %>
 <%= paginate @courses %>

@@ -43,3 +43,5 @@ en:
   ago: "%{time} ago"
   overview: "Overview"
   subjects: "Subjects in course"
+  course_member: "Course's Member"
+  course_member_title: "This is user_resource page"
