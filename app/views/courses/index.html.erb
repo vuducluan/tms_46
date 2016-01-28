@@ -1,10 +1,8 @@
-<h1><%= t"courses" %></h1>
-  <%= paginate @courses %>  
-  <% @courses.each do |course| %>
-    <div class="wrap">
-      <h1><%= course.name %></h1>   
-      <%= image_tag "http://www.wpthemegenerator.com/wp-content/uploads/2012/06/Image.jpg" %>   
-      <p><%= course.instruction %></p> 
-      <br/>
-    </div>
-  <% end %>
+<h1><%= t "courses" %></h1>
+<% @courses.each do |course| %>
+  <div class="wrap">
+    <h1><%= link_to course.name, course %></h1>
+    <%= image_tag Settings.course.course_image, size: Settings.course.size %>
+  </div>
+<% end %>
+<%= paginate @courses %>

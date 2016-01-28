@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :subjects, only: [:index]
   root "static_pages#home"
   get "/about" => "static_pages#about"
-  resources :courses, only: [:index]
   resources :users, only: [:show]
+  resources :courses, only: [:index, :show]
 end
