@@ -1,0 +1,35 @@
+<h1><%= t "overview" %></h1>
+<hr />
+<h1><%= @subject.name %></h0>
+<p><%= @subject.instruction %></p>
+<hr />
+<h1><%= t "subject.tasks" %></h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t "subject.name" %></th>
+      <th><%= t "task.name" %></th>
+      <th><%= t "task.time" %></th>
+      <th><%= t "task.status" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tasks.each_with_index do |task, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= task.subject.name %></td>
+        <td><%= link_to task.name, "#" %></td>
+        <td><%= t "ago", time: time_ago_in_words(task.created_at) %></td>
+        <td>
+          <% if current_user.has_task? task %>
+            <span class="label label-success"><%= t "task.finish" %></span>
+          <% else %>
+            <span class="label label-default"><%= t "task.open" %></span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

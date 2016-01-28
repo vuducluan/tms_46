@@ -39,9 +39,15 @@ en:
   access_denied: "Access denied."
   courses: "Listing all courses"
   name: "Name: "
-  email: "Email: "
   ago: "%{time} ago"
   overview: "Overview"
   subjects: "Subjects in course"
   course_member: "Course's Member"
   course_member_title: "This is user_resource page"
+  subject:
+    name: "Subject name"
+    task: "Tasks"
+  task:
+    time: "Time"
+    name: "Task name"
+    status: "status"

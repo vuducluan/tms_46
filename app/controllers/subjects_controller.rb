@@ -4,4 +4,8 @@ class SubjectsController < ApplicationController
   def index
     @subjects = @subjects.page(params[:page]).per Settings.per_page
   end
+
+  def show
+    @tasks = @subject.tasks.page(params[:page]).per Settings.per_page
+  end
 end
