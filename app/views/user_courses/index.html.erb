@@ -1,0 +1,17 @@
+<h1><%= t "course_member_title" %></h1>
+<table cellspacing="0">
+  <thead>
+    <tr>
+      <th><%= t "name" %></th>
+      <th><%= t "email" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr class="evenss">
+        <td><%= t "name" %><%= user.name %></td>
+        <td><%= t "email" %><%= user.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
