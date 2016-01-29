@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-2">
+    <%= image_tag Settings.course.course_image, size: Settings.course.size %>
+    <h1><%= @course.name %></h1>
+  </div>
+  <div class="col-md-8">
+    <h1><%= t "overview" %></h1>
+    <hr />
+    <p><%= @course.instruction %></p>
+    <h1><%= t "course.subjects", course_name: @course.name %></h1>
+    <ul class="list-unstyled">
+      <% @subjects.each do |subject| %>
+        <li>
+          <h4>
+            <b><%= link_to subject.name, "#" %></b>
+            <%= course_subject_status(@course_subjects, subject).html_safe %>
+          </h4>
+        </li>
+      <% end %>
+    </ul>
+    <%= paginate @subjects %>
+  </div>
+</div>

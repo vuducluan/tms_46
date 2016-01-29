@@ -8,6 +8,17 @@
           <% if user_signed_in? %>
             <li><%= link_to t("courses"), courses_path %></li>
             <li><%= link_to t("user"), users_path %></li>
+            <% if current_user.supervisor? %>
+              <li class="dropdown" id="dropdownMenuDivider">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                  <%= t "administration" %>
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+                  <li><%= link_to t("administrations.courses"), admin_courses_url %></li>
+                </ul>
+              </li>
+            <% end %>
             <li class="dropdown" id="dropdownMenuDivider">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                 <%= current_user.name %>
