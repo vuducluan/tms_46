@@ -6,7 +6,8 @@ class Ability
     if user.supervisor?
       can :manage, :all
     else
-      can :read, :all
+      can :read, User, role: "trainee"
+      can :read, Course
     end
   end
 end
