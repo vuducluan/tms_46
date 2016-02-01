@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   rescue_from CanCan::AccessDenied do |exception|
-    flash[:error] = exception.message
+    flash[:danger] = exception.message
     redirect_to root_url
   end
 
@@ -20,5 +20,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for :sign_up do |u|
       u.permit :email, :name, :password, :password_confirmation
     end
+  end
+
+  def current_ability
+    controller_name_segments = params[:controller].split "/"
+    controller_name_segments.pop
+    controller_namespace = controller_name_segments.join("/").camelize
+    Ability.new current_user, controller_namespace
   end
 end

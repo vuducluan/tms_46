@@ -44,6 +44,11 @@ en:
   subjects: "Subjects in course"
   course_member: "Course's Member"
   course_member_title: "This is user_resource page"
+  administration: "Administration"
+  admin:
+    required: "Require admin permission. Please try again!"
+  administrations:
+    courses: "Courses"
   subject:
     name: "Subject name"
     task: "Tasks"
@@ -52,3 +57,12 @@ en:
     name: "Task name"
     status: "status"
   user: "Listing all Users"
+  course:
+    name: "name"
+    instruction: "Instruction"
+    status: "Status"
+    created_at: "Create time"
+    updated_at: "Update time"
+    active: "active"
+    inactive: "inactive"
+    subjects: "Subjects in course %{course_name}"
