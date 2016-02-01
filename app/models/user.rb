@@ -10,6 +10,11 @@ class User < ActiveRecord::Base
   has_many :user_tasks
   has_many :tasks, through: :user_tasks, dependent: :destroy
 
+  accepts_nested_attributes_for :user_courses, allow_destroy: true
+
+  scope :supervisor_users, ->{where role: User.roles[:supervisor]}
+  scope :trainee_users, ->{where role: User.roles[:trainee]}
+
   def has_task? task
     tasks.include? task
   end

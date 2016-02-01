@@ -2,6 +2,8 @@
   <div class="col-md-2">
     <%= image_tag Settings.course.course_image, size: Settings.course.size %>
     <h1><%= @course.name %></h1>
+    <%= link_to t("list_trainee"), admin_course_trainees_path(@course), class: "btn btn-primary btn-default" %>
+    <%= link_to t("list_supervisor"), admin_course_supervisors_path(@course), class: "btn btn-primary btn-default" %>
   </div>
   <div class="col-md-8">
     <h1><%= t "overview" %></h1>

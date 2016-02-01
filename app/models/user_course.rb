@@ -1,4 +1,5 @@
 class UserCourse < ActiveRecord::Base
-  belongs_to :user 
+  enum status: [:active, :finished]
+  belongs_to :user
   belongs_to :course
 end

@@ -2,7 +2,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "courses#index"
-    resources :courses, only: [:index, :show]
+    resources :courses, only: [:index, :show, :edit, :update] do
+      resources :user_courses, only: [:index, :new, :create]
+      resources :supervisors, only: [:index]
+      resources :trainees, only: [:index]
+    end
+    resources :users, only: [:edit, :update]
   end
 
   devise_for :users, only: [:session, :registration]
@@ -12,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :courses, only: [:index, :show] do
     resources :user_courses, only: [:index]
+
   end
   resources :users, only: [:index, :show]
 end
