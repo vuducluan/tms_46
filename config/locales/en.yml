@@ -47,6 +47,7 @@ en:
   administration: "Administration"
   list_trainee: "List trainees"
   list_supervisor: "List supervisors"
+  alert: "Do you want to delete?"
   admin:
     required: "Require admin permission. Please try again!"
   administrations:
@@ -84,3 +85,8 @@ en:
     add: "Add new"
     add_trainee: "Add trainee"
     add_supervisor: "Add supervisor"
+    delete_success: "Delete a course is successfully!"
+    delete_failed: "Delete a course is failed!"
+    action: "Action"
+    edit: "Edit"
+    delete: "Delete"
