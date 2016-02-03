@@ -1,5 +1,4 @@
 class Task < ActiveRecord::Base
-  has_many :user_tasks
-  has_many :users, through: :user_tasks
-  belongs_to :subject
+  has_many :course_subject_tasks
+  has_many :course_subjects, through: :course_subject_tasks, dependent: :destroy
 end
