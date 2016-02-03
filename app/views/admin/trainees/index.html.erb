@@ -1,0 +1,38 @@
+<h1><%= t "course.users.trainee" %></h1>
+
+<%= form_for [:admin, @course] do |f| %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th><%= t "user.email" %></th>
+        <th><%= t "user.name" %></th>
+        <th><%= t "user.created_at" %></th>
+        <th><%= t "user.updated_at" %></th>
+        <th><%= t "button.action" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each_with_index do |user, index| %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= link_to user.email, user %></td>
+          <td><%= user.name %></td>
+          <td><%= t "ago", time: time_ago_in_words(user.created_at) %></td>
+          <td><%= t "ago", time: time_ago_in_words(user.updated_at) %></td>
+          <td>
+            <%= f.fields_for :user_courses, user.user_courses.build do |builder| %>
+              <%= builder.check_box :_destroy, {checked:
+                @course.has_user?(user), disabled: user == current_user}, 0, 1 %>
+              <%= builder.hidden_field :id, value:
+                @course.user_course_of(user).id if @course.user_course_of(user).present? %>
+              <%= builder.hidden_field :user_id, value: user.id %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      <%= paginate @users %>
+    </tbody>
+  </table>
+<%= f.submit t("button.add_trainee"), class: "btn btn-primary btn-default" %>
+<% end %>

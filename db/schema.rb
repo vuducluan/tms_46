@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160129065241) do
+ActiveRecord::Schema.define(version: 20160202070818) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -55,9 +55,9 @@ ActiveRecord::Schema.define(version: 20160129065241) do
   create_table "user_courses", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
     t.integer  "course_id",  limit: 4
-    t.string   "status",     limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.integer  "status",     limit: 4, default: 0
   end
 
   create_table "user_subjects", force: :cascade do |t|
