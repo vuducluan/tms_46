@@ -52,9 +52,19 @@ en:
     required: "Require admin permission. Please try again!"
   administrations:
     courses: "Courses"
+    subjects: "Subjects"
   subject:
     name: "Subject name"
     task: "Tasks"
+    list: "List subjects"
+    create: "Create a subject"
+    delete_success: "Delete a subject is successfully!"
+    delete_failed: "Delete a subject is failed!"
+    edit: "Edit a subject"
+    create_success: "Create a subject is successfully!"
+    create_failed: "Create a subject is failed!"
+    update_success: "Update a subject is successfully!"
+    update_failed: "Update a subject is failed!"
   task:
     time: "Time"
     name: "Task name"
