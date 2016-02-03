@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160202070818) do
+ActiveRecord::Schema.define(version: 20160203065056) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -20,6 +20,11 @@ ActiveRecord::Schema.define(version: 20160202070818) do
     t.integer  "type",       limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "course_subject_tasks", force: :cascade do |t|
+    t.integer "course_subject_id", limit: 4
+    t.integer "task_id",           limit: 4
   end
 
   create_table "course_subjects", force: :cascade do |t|
@@ -46,7 +51,6 @@ ActiveRecord::Schema.define(version: 20160202070818) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.integer  "subject_id", limit: 4
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
@@ -61,20 +65,19 @@ ActiveRecord::Schema.define(version: 20160202070818) do
   end
 
   create_table "user_subjects", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.integer  "subject_id", limit: 4
-    t.integer  "course_id",  limit: 4
-    t.string   "status",     limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "user_id",           limit: 4
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "status",            limit: 4
+    t.integer  "course_subject_id", limit: 4
   end
 
   create_table "user_tasks", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.integer  "task_id",    limit: 4
-    t.string   "status",     limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "user_id",                limit: 4
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.integer  "course_subject_task_id", limit: 4
+    t.integer  "status",                 limit: 4
   end
 
   create_table "users", force: :cascade do |t|
