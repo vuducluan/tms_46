@@ -4,13 +4,28 @@ class Admin::CoursesController < ApplicationController
   def index
   end
 
+  def create
+    if @course.save
+      flash[:success] = t "course.create_success"
+    else
+      flash[:warning] = t "course.create_failed"
+    end
+    redirect_to [:admin, @course]
+  end
+
+  def new
+  end
+
+  def edit
+  end
+
   def update
     if @course.update_attributes course_params
       flash[:success] = t "users.update_success"
     else
       flash[:warning] = t "users.update_failed"
     end
-    redirect_to :back
+    redirect_to [:admin, @course]
   end
 
   def destroy
@@ -19,6 +34,7 @@ class Admin::CoursesController < ApplicationController
     else
       flash[:danger] = t "course.delete_failed"
     end
+    redirect_to :back
   end
 
   def show

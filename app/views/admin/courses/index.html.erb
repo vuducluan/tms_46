@@ -1,4 +1,5 @@
 <h1><%= t "courses" %></h1>
+<%= link_to t("course.create"), new_admin_course_path, class: "btn btn-primary" %>
 
 <table class="table table-striped">
   <thead>
@@ -26,7 +27,7 @@
           </span>
         </td>
         <td>
-          <%= link_to t("button.edit"), "#", class: "btn btn-primary" %>
+          <%= link_to t("button.edit"), edit_admin_course_path(course), class: "btn btn-primary" %>
           <%= link_to t("button.delete"), admin_course_path(course),
             method: :delete, data: {confirm: t("alert")}, class:
             "btn btn-default btn-primary" %>
