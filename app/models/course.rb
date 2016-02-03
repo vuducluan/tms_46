@@ -4,6 +4,8 @@ class Course < ActiveRecord::Base
   has_many :users, through: :user_courses, dependent: :destroy
   has_many :course_subjects
   has_many :subjects, through: :course_subjects, dependent: :destroy
+  validates :name, presence: true
+  validates :instruction, presence: true
 
   accepts_nested_attributes_for :user_courses, allow_destroy: true, reject_if:
     proc {|attributes| attributes[:_destroy].blank?}

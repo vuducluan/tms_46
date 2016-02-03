@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "courses#index"
-    resources :courses, only: [:index, :show, :edit, :destroy, :update] do
+    resources :courses do
       resources :user_courses, only: [:index, :new, :create]
       resources :supervisors, only: [:index]
       resources :trainees, only: [:index]

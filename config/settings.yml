@@ -6,3 +6,6 @@ course:
   size: 150x150
 user:
   SUPERVISORS_QUERY: "id in (select user_id from user_courses where course_id = :course_id and user_type = 1)"
+form:
+  row:
+    size: 5

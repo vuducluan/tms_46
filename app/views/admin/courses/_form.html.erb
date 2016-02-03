@@ -1,0 +1,7 @@
+<%= form_for [:admin, @course], class: "form-group" do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %>
+  <%= f.label :instruction %>
+  <%= f.text_area :instruction, class: "form-control", rows: Settings.form.row.size %>
+  <%= f.submit t("button.submit"), class: "btn btn-default btn-large btn-primary" %>
+<% end %>
