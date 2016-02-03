@@ -12,6 +12,8 @@ class Ability
     else
       can :read, User, role: "trainee"
       can :read, Course
+      can :read, CourseSubject
+      can :update, User, id: user.id
     end
   end
 end

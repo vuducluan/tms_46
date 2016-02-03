@@ -8,14 +8,13 @@ class User < ActiveRecord::Base
   has_many :subjects, through: :user_subjects, dependent: :destroy
   has_many :activities, dependent: :destroy
   has_many :user_tasks
-  has_many :tasks, through: :user_tasks, dependent: :destroy
-
+  has_many :course_subject_tasks, through: :user_tasks, dependent: :destroy
   accepts_nested_attributes_for :user_courses, allow_destroy: true
 
   scope :supervisor_users, ->{where role: User.roles[:supervisor]}
   scope :trainee_users, ->{where role: User.roles[:trainee]}
 
-  def has_task? task
-    tasks.include? task
+  def has_course_subject_task? course_subject_task
+    course_subject_tasks.include? course_subject_task
   end
 end
