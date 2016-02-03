@@ -10,7 +10,8 @@ class User < ActiveRecord::Base
   has_many :user_tasks
   has_many :course_subject_tasks, through: :user_tasks, dependent: :destroy
   accepts_nested_attributes_for :user_courses, allow_destroy: true
-
+  accepts_nested_attributes_for :user_tasks, allow_destroy: true, reject_if:
+    proc {|attributes| attributes[:course_subject_task_id] == "0"}
   scope :supervisor_users, ->{where role: User.roles[:supervisor]}
   scope :trainee_users, ->{where role: User.roles[:trainee]}
 

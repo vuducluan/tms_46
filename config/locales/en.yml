@@ -98,3 +98,5 @@ en:
     action: "Action"
     edit: "Edit"
     delete: "Delete"
+  finish_task: "Finished task!"
+  finish_task_error: "Error!"

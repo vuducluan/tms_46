@@ -1,0 +1,44 @@
+<h1><%= t "overview" %></h1>
+<hr />
+<h1><%= @course_subject.subject.name %></h1>
+<p><%= @course_subject.subject.instruction %></p>
+<hr />
+<h1><%= t "subject.tasks" %></h1>
+<%= form_for current_user do |user| %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th><%= t "subject.name" %></th>
+        <th><%= t "task.name" %></th>
+        <th><%= t "task.time" %></th>
+        <th><%= t "task.status" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @course_subject_tasks.each_with_index do |course_subject_task, index| %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= @course_subject.subject.name %></td>
+          <td><%= link_to course_subject_task.task.name, "#" %></td>
+          <td><%= t "ago", time: time_ago_in_words(course_subject_task.task.created_at) %></td>
+          <td>
+            <% if current_user.has_course_subject_task? course_subject_task %>
+              <span class="label label-success"><%= t "task.finish" %></span>
+            <% else %>
+              <span class="label label-default"><%= t "task.open" %></span>
+            <% end %>
+          </td>
+          <td>
+            <% unless current_user.has_course_subject_task? course_subject_task %>
+              <%= user.fields_for :user_tasks, course_subject_task.user_tasks.build do |t| %>
+                <%= t.check_box :course_subject_task_id, {checked: false}, course_subject_task.task.id, 0 %>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= user.submit class: "btn btn-primary" %>
+<% end %>
