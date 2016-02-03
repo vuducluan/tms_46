@@ -13,6 +13,14 @@ class Admin::CoursesController < ApplicationController
     redirect_to :back
   end
 
+  def destroy
+    if @course.destroy
+      flash[:success] = t "course.delete_success"
+    else
+      flash[:danger] = t "course.delete_failed"
+    end
+  end
+
   def show
     @course_subjects = @course.course_subjects
     @subjects = @course.subjects.page(params[:page]).per Settings.per_page

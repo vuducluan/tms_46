@@ -9,6 +9,7 @@
       <th><%= t "course.created_at" %></th>
       <th><%= t "course.updated_at" %></th>
       <th><%= t "course.status" %></th>
+      <th><%= t "button.action" %></th>
     </tr>
   </thead>
   <tbody>
@@ -23,6 +24,12 @@
           <span class="label label-default">
             <%= course.active? ? t("course.active"): t("course.inactive") %>
           </span>
+        </td>
+        <td>
+          <%= link_to t("button.edit"), "#", class: "btn btn-primary" %>
+          <%= link_to t("button.delete"), admin_course_path(course),
+            method: :delete, data: {confirm: t("alert")}, class:
+            "btn btn-default btn-primary" %>
         </td>
       </tr>
     <% end %>
