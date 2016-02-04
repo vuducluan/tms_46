@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :trainees, only: [:index]
     end
     resources :users, only: [:edit, :update]
+    resources :subjects
   end
 
   devise_for :users, only: [:session, :registration]
