@@ -6,6 +6,6 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @subjects = @course.subjects.page(params[:page]).per Settings.per_page
+    @course_subjects = @course.course_subjects.page(params[:page]).per Settings.per_page
   end
 end

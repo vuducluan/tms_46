@@ -11,12 +11,13 @@ Rails.application.routes.draw do
   end
 
   devise_for :users, only: [:session, :registration]
-  resources :subjects, only: [:index, :show]
+  resources :subjects, only: [:index, :show, :update]
   root "static_pages#home"
   get "/about" => "static_pages#about"
 
   resources :courses, only: [:index, :show] do
     resources :user_courses, only: [:index]
+    resources :course_subjects, only: [:show]
   end
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show, :update]
 end
