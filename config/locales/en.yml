@@ -55,7 +55,7 @@ en:
   administrations:
     courses: "Courses"
     subjects: "Subjects"
-    tasks: "Tasks"
+    users: "Users"
   subject:
     name: "Subject name"
     task: "Tasks"
@@ -86,6 +86,15 @@ en:
   users:
     update_success: "Update is successfully!"
     update_failed: "Update is failed!"
+    name: "User name"
+    email: "Email"
+    list: "List users"
+    create: "Create an user"
+    delete_success: "Delete an user is successfully!"
+    delete_failed: "Delete an user is failed!"
+    edit: "Edit an user"
+    create_success: "Create an user is successfully!"
+    create_failed: "Create an user is failed!"
   course:
     name: "name"
     instruction: "Instruction"
