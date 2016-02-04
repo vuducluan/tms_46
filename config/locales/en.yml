@@ -55,6 +55,7 @@ en:
   administrations:
     courses: "Courses"
     subjects: "Subjects"
+    tasks: "Tasks"
   subject:
     name: "Subject name"
     task: "Tasks"
@@ -71,6 +72,16 @@ en:
     time: "Time"
     name: "Task name"
     status: "status"
+    list: "List task"
+    create: "Create a task"
+    remove: "Remove"
+    delete_success: "Delete a task is successfully!"
+    delete_failed: "Delete a task is failed!"
+    edit: "Edit a task"
+    create_success: "Create a task is successfully!"
+    create_failed: "Create a task is failed!"
+    update_success: "Update a task is successfully!"
+    update_failed: "Update a task is failed!"
   user: "Listing all Users"
   users:
     update_success: "Update is successfully!"

@@ -1,2 +1,14 @@
+<h1><%= t "overview" %></h1>
 <h1><%= @subject.name %></h1>
 <p><%= @subject.instruction %></p>
+<hr />
+<h1><%= t "subject.task" %></h1>
+<ul class="list-unstyled">
+  <% @tasks.each do |task| %>
+    <li>
+      <h3><%= link_to task.name, "#" %></h3>
+      <i><%= t "ago", time: time_ago_in_words(task.created_at) %></i>
+    </li>
+  <% end %>
+</ul>
+<%= paginate @tasks %>
