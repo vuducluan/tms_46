@@ -14,6 +14,7 @@ class Ability
       can :read, Course
       can :read, CourseSubject
       can :update, User, id: user.id
+      can :update, UserSubject
     end
   end
 end

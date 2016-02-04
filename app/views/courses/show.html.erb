@@ -10,7 +10,42 @@
     <p><%= @course.instruction %></p>
     <h2><%= t "subjects" %></h2>
     <hr />
-    <%= render @course_subjects %>
-    <%= paginate @course_subjects %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= t "subject.name" %></th>
+          <th><%= t "subject.instruction" %></th>
+          <th><%= t "subject.status" %></th>
+          <th><%= t "subject.action" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @course_subjects.each do |course_subject| %>
+          <% user_subject = course_subject.user_subjects.find_by(user_id: current_user) %>
+          <tr>
+            <td>
+              <h3><%= link_to course_subject.subject.name,
+                course_course_subject_path(course_subject.course, course_subject) %></h3>
+            </td>
+            <td><h5><%= course_subject.subject.instruction %></h5></td>
+            <td>
+              <% if user_subject.status == 1 %>
+                <span class="label label-success"><%= t "task.finish" %></span>
+              <% else %>
+                <span class="label label-default"><%= t "task.open" %></span>
+              <% end %>
+            </td>
+            <td>
+              <% unless user_subject.status == 1 %>
+                <%= form_tag user_subject_path(user_subject.id, "user_subject[status]": 1), method: :put do %>
+                  <%= submit_tag t("subject.finish"), class: "btn btn-primary" %>
+                <% end %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+        <%= paginate @course_subjects %>
+      </tbody>
+    </table>
   </div>
 </div>
