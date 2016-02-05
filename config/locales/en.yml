@@ -47,7 +47,9 @@ en:
   administration: "Administration"
   list_trainee: "List trainees"
   list_supervisor: "List supervisors"
+  list_subject: "list subjects"
   alert: "Do you want to delete?"
+  error: "Error"
   admin:
     required: "Require admin permission. Please try again!"
   administrations:

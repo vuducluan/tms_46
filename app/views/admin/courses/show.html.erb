@@ -4,22 +4,35 @@
     <h1><%= @course.name %></h1>
     <%= link_to t("list_trainee"), admin_course_trainees_path(@course), class: "btn btn-primary btn-default" %>
     <%= link_to t("list_supervisor"), admin_course_supervisors_path(@course), class: "btn btn-primary btn-default" %>
+    <%= link_to t("list_subject"), admin_course_course_subjects_path(@course), class: "btn btn-primary btn-default" %>
   </div>
   <div class="col-md-8">
     <h1><%= t "overview" %></h1>
     <hr />
     <p><%= @course.instruction %></p>
     <h1><%= t "course.subjects", course_name: @course.name %></h1>
-    <ul class="list-unstyled">
-      <% @subjects.each do |subject| %>
-        <li>
-          <h4>
-            <b><%= link_to subject.name, "#" %></b>
-            <%= course_subject_status(@course_subjects, subject).html_safe %>
-          </h4>
-        </li>
-      <% end %>
-    </ul>
-    <%= paginate @subjects %>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th><%= t "subject.name" %></th>
+            <th><%= t "subject.instruction" %></th>
+            <th><%= t "subject.created_at" %></th>
+            <th><%= t "subject.updated_at" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @course_subjects.each_with_index do |course_subject, index| %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><%= link_to course_subject.subject.name, "#" %></td>
+              <td><%= course_subject.subject.instruction %></td>
+              <td><%= t "ago", time: time_ago_in_words(course_subject.subject.created_at) %></td>
+              <td><%= t "ago", time: time_ago_in_words(course_subject.subject.updated_at) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <%= paginate @course_subjects %>
   </div>
 </div>
