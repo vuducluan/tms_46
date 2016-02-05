@@ -6,8 +6,9 @@ Rails.application.routes.draw do
       resources :user_courses, only: [:index, :new, :create]
       resources :supervisors, only: [:index]
       resources :trainees, only: [:index]
-      resources :course_subjects, except: [:new, :create, :destroy]
+      resources :course_subjects, only: [:index]
     end
+    resources :course_subjects, only: [:update, :show]
     resources :users
     resources :subjects
   end

@@ -22,15 +22,19 @@
         <td><%= t "ago", time: time_ago_in_words(course.created_at) %></td>
         <td><%= t "ago", time: time_ago_in_words(course.updated_at) %></td>
         <td>
-          <span class="label label-default">
-            <%= course.active? ? t("course.active"): t("course.inactive") %>
-          </span>
+          <%= status_of(course).html_safe %>
         </td>
         <td>
           <%= link_to t("button.edit"), edit_admin_course_path(course), class: "btn btn-primary" %>
           <%= link_to t("button.delete"), admin_course_path(course),
             method: :delete, data: {confirm: t("alert")}, class:
             "btn btn-default btn-primary" %>
+          <%= link_to t("button.finish"), admin_course_path(course, "course[status]": :finished),
+            method: :put, class: "btn btn-primary" unless course.finished? %>
+          <%= link_to t("button.inactive"), admin_course_path(course, "course[status]": :inactive),
+            method: :put, class: "btn btn-primary" unless course.inactive? %>
+          <%= link_to t("button.active"), admin_course_path(course, "course[status]": :active),
+            method: :put, class: "btn btn-primary" unless course.active? %>
         </td>
       </tr>
     <% end %>

@@ -50,6 +50,11 @@ en:
   list_subject: "list subjects"
   alert: "Do you want to delete?"
   error: "Error"
+  update_success: "Update is successfully!"
+  update_failed: "Update is failed!"
+  finish: "finished"
+  active: "active"
+  inactive: "inactive"
   admin:
     required: "Require admin permission. Please try again!"
   administrations:
@@ -71,6 +76,10 @@ en:
     instruction: "Instruction"
     action: "Action"
     finish: "Finish Subject"
+    status: "Status"
+    finished: "finished"
+    active: "active"
+    inactive: "inactive"
   task:
     time: "Time"
     name: "Task name"
@@ -104,6 +113,7 @@ en:
     status: "Status"
     created_at: "Create time"
     updated_at: "Update time"
+    finished: "finished"
     active: "active"
     inactive: "inactive"
     subjects: "Subjects in course %{course_name}"
@@ -133,6 +143,9 @@ en:
     action: "Action"
     edit: "Edit"
     delete: "Delete"
+    finish: "Finish"
+    active: "active"
+    inactive: "inactive"
   finish_task: "Finished task!"
   finish_task_error: "Error!"
   flash:

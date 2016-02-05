@@ -19,16 +19,32 @@
             <th><%= t "subject.instruction" %></th>
             <th><%= t "subject.created_at" %></th>
             <th><%= t "subject.updated_at" %></th>
+            <th><%= t "subject.status" %></th>
+            <th><%= t "button.action" %></th>
           </tr>
         </thead>
         <tbody>
           <% @course_subjects.each_with_index do |course_subject, index| %>
             <tr>
               <td><%= index + 1 %></td>
-              <td><%= link_to course_subject.subject.name, "#" %></td>
+              <td><%= link_to course_subject.subject.name, admin_course_subject_path(course_subject) %></td>
               <td><%= course_subject.subject.instruction %></td>
               <td><%= t "ago", time: time_ago_in_words(course_subject.subject.created_at) %></td>
               <td><%= t "ago", time: time_ago_in_words(course_subject.subject.updated_at) %></td>
+              <td>
+                <%= status_of(course_subject).html_safe %>
+              </td>
+              <td>
+                <%= link_to t("button.inactive"), admin_course_subject_path(
+                  course_subject, "course_subject[status]": :inactive),
+                  method: :put, class: "btn btn-primary" unless course_subject.inactive? %>
+                <%= link_to t("button.finish"), admin_course_subject_path(
+                  course_subject,"course_subject[status]": :finished),
+                  method: :put, class: "btn btn-primary" unless course_subject.finished? %>
+                <%= link_to t("button.active"), admin_course_subject_path(
+                  course_subject, "course_subject[status]": :active),
+                  method: :put, class: "btn btn-primary" unless course_subject.active? %>
+              </td>
             </tr>
           <% end %>
         </tbody>
