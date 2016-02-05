@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
   scope :supervisor_users, ->{where role: User.roles[:supervisor]}
   scope :trainee_users, ->{where role: User.roles[:trainee]}
 
+  def has_course? course
+    courses.include? course
+  end
+
   def has_course_subject_task? course_subject_task
     course_subject_tasks.include? course_subject_task
   end

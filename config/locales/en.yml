@@ -68,6 +68,9 @@ en:
     create_failed: "Create a subject is failed!"
     update_success: "Update a subject is successfully!"
     update_failed: "Update a subject is failed!"
+    instruction: "Instruction"
+    action: "Action"
+    finish: "Finish Subject"
   task:
     time: "Time"
     name: "Task name"
@@ -132,3 +135,6 @@ en:
     delete: "Delete"
   finish_task: "Finished task!"
   finish_task_error: "Error!"
+  flash:
+    subject_success: "Finished subject success!"
+    subject_warning: "Not complete finish subject!"
