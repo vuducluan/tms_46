@@ -1,7 +1,13 @@
-<%= form_for [:admin, @subject], class: "form-group" do |f| %>
+<%= nested_form_for [:admin, @subject], class: "form-group" do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name, class: "form-control" %>
   <%= f.label :instruction %>
   <%= f.text_area :instruction, class: "form-control", rows: Settings.form.row.size %>
+  <%= f.fields_for :tasks do |task_form| %>
+    <%= task_form.label :name %>
+    <%= task_form.text_field :name %>
+    <%= task_form.link_to_remove t("task.remove"), class: "btn btn-primary" %>
+  <% end %>
+  <%= f.link_to_add t("task.create"), :tasks, class: "btn btn-default" %>
   <%= f.submit t("button.submit"), class: "btn btn-default btn-large btn-primary" %>
 <% end %>

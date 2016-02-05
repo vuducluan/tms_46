@@ -18,6 +18,7 @@ gem "config"
 gem "devise"
 gem "cancancan"
 gem "table_print"
+gem "nested_form"
 
 group :development, :test do
   gem "byebug"

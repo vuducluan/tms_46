@@ -18,6 +18,7 @@ class Admin::SubjectsController < ApplicationController
   end
 
   def show
+    @tasks = @subject.tasks.page(params[:page]).per Settings.per_page
   end
 
   def destroy
@@ -43,6 +44,6 @@ class Admin::SubjectsController < ApplicationController
 
   private
   def subject_params
-    params.require(:subject).permit :name, :instruction
+    params.require(:subject).permit :name, :instruction, tasks_attributes: [:id, :name, :_destroy]
   end
 end
