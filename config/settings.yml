@@ -9,3 +9,4 @@ user:
 form:
   row:
     size: 5
+task_type: "task_type"
