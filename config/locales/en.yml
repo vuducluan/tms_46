@@ -98,8 +98,8 @@ en:
   users:
     update_success: "Update is successfully!"
     update_failed: "Update is failed!"
-    name: "User name"
-    email: "Email"
+    name: "User name: "
+    email: "Email: "
     list: "List users"
     create: "Create an user"
     delete_success: "Delete an user is successfully!"
@@ -151,3 +151,9 @@ en:
   flash:
     subject_success: "Finished subject success!"
     subject_warning: "Not complete finish subject!"
+  activity:
+    index: "Index"
+    target: "Activity target"
+    time_ago: "At this time"
+    action_task: "Done task-%{task_name}"
+    action_subject: "Complete subject-%{subject_name}"

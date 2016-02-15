@@ -1,2 +1,24 @@
-<h1><%= t "name" %><%= @user.name %></h1>
-<h1><%= t "email" %><%= @user.email %></h1>
+<h1><%= t "users.name" %><%= @user.name %></h1>
+<h1><%= t "users.email" %><%= @user.email %></h1>
+<hr />
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t "activity.index" %></th>
+      <th><%= t "activity.target" %></th>
+      <th><%= t "activity.time_ago" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.activities.each_with_index do |activity, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td>
+          <%= activity_target activity.type_activity, activity.target %>
+        </td>
+        <td><%= t "ago", time: time_ago_in_words(activity.created_at) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
