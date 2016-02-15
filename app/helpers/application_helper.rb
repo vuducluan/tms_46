@@ -9,4 +9,14 @@ module ApplicationHelper
       "<span class='label label-warning'>#{t("course.finish")}</span>"
     end
   end
+
+  def status_of object
+    if object.inactive?
+      "<span class='label label-default'>#{t("inactive")}</span>"
+    elsif object.active?
+      "<span class='label label-primary'>#{t("active")}</span>"
+    else
+      "<span class='label label-warning'>#{t("finish")}</span>"
+    end
+  end
 end

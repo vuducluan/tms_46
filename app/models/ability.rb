@@ -12,8 +12,8 @@ class Ability
       cannot :read, :all
     else
       can :read, User, role: 0
-      can :read, Course
-      can :read, CourseSubject
+      can :read, Course, status: 1
+      can :read, CourseSubject, status: 1
       can :update, User, id: user.id
       can :update, UserSubject
     end
