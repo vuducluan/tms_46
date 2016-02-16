@@ -1,0 +1,25 @@
+<h1><%= t "users.list" %></h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t "users.email" %></th>
+      <th><%= t "users.name" %></th>
+      <th><%= t "users.created_at" %></th>
+      <th><%= t "users.updated_at" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each_with_index do |user, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= link_to user.email, [:admin, user] %></td>
+        <td><%= user.name %></td>
+        <td><%= t "ago", time: time_ago_in_words(user.created_at) %></td>
+        <td><%= t "ago", time: time_ago_in_words(user.updated_at) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @users %>

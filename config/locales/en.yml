@@ -161,3 +161,7 @@ en:
   user_mailer:
     report_day_by_day:
       subject: "You've finished task %{task_name} on %{subject_name} in %{course_name}"
+    send_email_to_trainee:
+      subject: "You've %{type} %{course_name}"
+  add_to: "added to"
+  remove_from: "removed from"

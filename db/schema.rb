@@ -67,9 +67,9 @@ ActiveRecord::Schema.define(version: 20160215060202) do
 
   create_table "user_subjects", force: :cascade do |t|
     t.integer  "user_id",           limit: 4
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.integer  "status",            limit: 4
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.integer  "status",            limit: 4, default: 0
     t.integer  "course_subject_id", limit: 4
   end
 
