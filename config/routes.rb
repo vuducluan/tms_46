@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:index, :show, :update]
   resources :user_subjects, only: [:update]
+  require "sidekiq/web"
+  mount Sidekiq::Web, at: "/sidekiq"
 end

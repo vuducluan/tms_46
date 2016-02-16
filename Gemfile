@@ -19,6 +19,11 @@ gem "devise"
 gem "cancancan"
 gem "table_print"
 gem "nested_form"
+gem "whenever"
+gem "sidekiq"
+gem "sinatra", require: false
+gem "letter_opener"
+gem "launchy"
 
 group :development, :test do
   gem "byebug"
