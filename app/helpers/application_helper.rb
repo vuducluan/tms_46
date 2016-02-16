@@ -19,4 +19,12 @@ module ApplicationHelper
       "<span class='label label-warning'>#{t("finish")}</span>"
     end
   end
+
+  def activity_target type, target
+    if type == Settings.task_type
+      t "activity.action_task", task_name: Task.find(target).name
+    else
+      t "activity.action_subject", subject_name: Subject.find(target).name
+    end
+  end
 end
