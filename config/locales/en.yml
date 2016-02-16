@@ -29,6 +29,7 @@ en:
   contact_at: "Contact at"
   profile: "Profile"
   sign_in: "Sign in"
+  hi: "Hi %{user_name},"
   sign_out: "Sign out"
   leave_blank: "(leave blank if you don't want to change it)"
   current_password_to_change: "(we need your current password to confirm your changes)"
@@ -157,3 +158,6 @@ en:
     time_ago: "At this time"
     action_task: "Done task-%{task_name}"
     action_subject: "Complete subject-%{subject_name}"
+  user_mailer:
+    report_day_by_day:
+      subject: "You've finished task %{task_name} on %{subject_name} in %{course_name}"
