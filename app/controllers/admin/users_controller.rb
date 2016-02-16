@@ -41,6 +41,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def show
+    @courses = @user.courses
   end
 
   private

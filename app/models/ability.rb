@@ -11,11 +11,17 @@ class Ability
     elsif controller_namespace == "Admin"
       cannot :read, :all
     else
-      can :read, User do |u|
+      can :index, User, role: 0
+      can :show, User do |u|
         u.trainee?
       end
-      can :read, Course
-      can :read, CourseSubject
+      can :index, Course, status: 1
+      can :show, Course do |course|
+        course.active?
+      end
+      can :show, CourseSubject do |course_subject|
+        course_subject.active?
+      end
       can :update, User, id: user.id
       can :update, UserSubject
     end

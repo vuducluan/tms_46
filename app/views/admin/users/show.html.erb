@@ -1,2 +1,23 @@
 <h3><%= @user.email %></h3>
 <h5><%= @user.name %></h5>
+<hr />
+<h1><%= t "progress" %></h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t "course.name" %></th>
+      <th><%= t "course.progress" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @courses.each do |course| %>
+      <tr>
+        <td><h4><%= course.name %></h4></td>
+        <td>
+          <%= t "subject_finished_per_all", subject_finished: @user.user_subjects.user_course_subject(
+            course.id).status.count, subject_all: course.course_subjects.count %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
