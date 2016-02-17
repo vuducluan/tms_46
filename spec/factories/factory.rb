@@ -23,6 +23,30 @@ FactoryGirl.define do
     role 1
   end
 
+  factory :supervisor_sang, class: User do
+    name  "Ly Xuan Sang"
+    email "ly.xuan.sang@framgia.com"
+    password "12345678"
+    password_confirmation "12345678"
+    role 1
+  end
+
+  factory :trainee1, class: User do
+    name  "Kenny Sang"
+    email "ly.xuan.sang@gmail.com"
+    password "12345678"
+    password_confirmation "12345678"
+    role 0
+  end
+
+  factory :trainee2, class: User do
+    name  "Trainee Luan"
+    email "vu.duc.luan@framgia.com"
+    password "coltech4u"
+    password_confirmation "coltech4u"
+    role 0
+  end
+
   factory :user_courses do
     user
     course
