@@ -1,6 +1,9 @@
-<h1><%= t "subject.list" %></h1>
+<h2><%= t "subject.list" %></h2>
 <%= link_to t("subject.create"), new_admin_subject_path, class: "btn btn-primary" %>
-
+<%= search_form_for [:admin, @q] do |f| %>
+  <%= f.text_field :name_cont %>
+  <%= f.submit t("button.search"), class: "btn btn-primary btn-default" %>
+<% end %>
 <table class="table table-striped">
   <thead>
     <tr>

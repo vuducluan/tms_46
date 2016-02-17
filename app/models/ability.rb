@@ -6,7 +6,6 @@ class Ability
 
     if user.supervisor?
       can :manage, :all
-      cannot :create, User, role: 1
       cannot :read, User, role: 1
     elsif controller_namespace == "Admin"
       cannot :read, :all

@@ -25,6 +25,7 @@ gem "launchy"
 gem "factory_girl_rails"
 gem "factory_girl"
 gem "mysql2", "~> 0.4.2"
+gem "ransack"
 
 group :development, :test do
   gem "byebug"

@@ -1,6 +1,12 @@
-<h1><%= t "users.list" %></h1>
+<h2><%= t "users.list" %></h2>
 <%= link_to t("users.create"), new_admin_user_path, class: "btn btn-primary" %>
-
+<%= search_form_for [:admin, @q] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name_cont %>
+  <%= f.label :email %>
+  <%= f.text_field :email_cont %>
+  <%= f.submit t("button.search"), class: "btn btn-primary btn-default" %>
+<% end %>
 <table class="table table-striped">
   <thead>
     <tr>

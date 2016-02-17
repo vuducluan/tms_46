@@ -3,7 +3,8 @@ class Admin::CourseSubjectsController < ApplicationController
   load_and_authorize_resource :course_subject, only: [:update, :show]
 
   def index
-    @subjects = Subject.page(params[:page]).per Settings.per_page
+    @q = Subject.search params[:q]
+    @subjects = @q.result.page(params[:page]).per Settings.per_page
     @course_subjects = @course.course_subjects
   end
 

@@ -1,5 +1,8 @@
-<h1><%= t "course.subjects", course_name: @course.name %></h1>
-
+<h2><%= t "course.subjects", course_name: @course.name %></h2>
+<%= search_form_for @q, url: admin_course_course_subjects_path(@course), html: {method: :get} do |f| %>
+  <%= f.text_field :name_cont %>
+  <%= f.submit t("button.search"), class: "btn btn-primary btn-default" %>
+<% end %>
 <%= form_for [:admin, @course] do |f| %>
   <table class="table table-striped">
     <thead>

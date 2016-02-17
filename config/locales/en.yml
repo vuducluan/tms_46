@@ -148,6 +148,7 @@ en:
     finish: "Finish"
     active: "active"
     inactive: "inactive"
+    search: "Search"
   finish_task: "Finished task!"
   finish_task_error: "Error!"
   flash:
@@ -167,3 +168,4 @@ en:
   add_to: "added to"
   remove_from: "removed from"
   subject_finished_per_all: "%{subject_finished} / %{subject_all} Subjects"
+  update: "Update"

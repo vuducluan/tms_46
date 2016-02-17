@@ -1,5 +1,11 @@
-<h1><%= t "course.users.trainee" %></h1>
-
+<h2><%= t "course.users.trainee" %></h2>
+<%= search_form_for @q, url: admin_course_trainees_path(@course), html: {method: :get} do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name_cont %>
+  <%= f.label :email %>
+  <%= f.text_field :email_cont %>
+  <%= f.submit t("button.search"), class: "btn btn-primary btn-default" %>
+<% end %>
 <%= form_for [:admin, @course] do |f| %>
   <table class="table table-striped">
     <thead>

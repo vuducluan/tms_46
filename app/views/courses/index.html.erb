@@ -1,4 +1,4 @@
-<h1><%= t "courses" %></h1>
+<h2><%= t "courses" %></h2>
 <% @courses.each do |course| %>
   <% if current_user.has_course? course %>
     <div class="wrap">

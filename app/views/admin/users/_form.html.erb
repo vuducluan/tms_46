@@ -7,5 +7,7 @@
   <%= f.password_field :password, class: "form-control" %>
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation, class: "form-control" %>
+  <%= f.label :role %>
+  <%= f.select :role, User.roles.keys.to_a %>
   <%= f.submit t("button.submit"), class: "btn btn-default btn-large btn-primary" %>
 <% end %>

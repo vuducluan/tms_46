@@ -2,7 +2,8 @@ class Admin::UsersController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @users = @users.page(params[:page]).per Settings.per_page
+    @q = @users.search params[:q]
+    @users = @q.result.page(params[:page]).per Settings.per_page
   end
 
   def create
@@ -46,6 +47,6 @@ class Admin::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit :id, :name, :email, :password, :password_confirmation
+    params.require(:user).permit :id, :name, :email, :password, :password_confirmation, :role
   end
 end

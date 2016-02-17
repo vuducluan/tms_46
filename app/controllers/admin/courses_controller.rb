@@ -2,7 +2,8 @@ class Admin::CoursesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @courses = @courses.page(params[:page]).per Settings.per_page
+    @q = @courses.search params[:q]
+    @courses = @q.result.page(params[:page]).per Settings.per_page
   end
 
   def create
@@ -42,7 +43,8 @@ class Admin::CoursesController < ApplicationController
   end
 
   def show
-    @course_subjects = @course.course_subjects.page(params[:page]).per Settings.per_page
+    @q = @course.course_subjects.search params[:q]
+    @course_subjects = @q.result.page(params[:page]).per Settings.per_page
   end
 
   private

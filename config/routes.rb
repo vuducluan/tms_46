@@ -13,7 +13,9 @@ Rails.application.routes.draw do
     resources :subjects
   end
 
-  devise_for :users, only: [:session, :registration]
+  devise_for :users, controllers: { registrations: "users/registrations"
+  }, only: [:session, :registration]
+
   resources :subjects, only: [:index, :show, :update]
   root "static_pages#home"
   get "/about" => "static_pages#about"
