@@ -31,6 +31,14 @@ FactoryGirl.define do
     role 1
   end
 
+  factory :supervisor_dieunb, class: User do
+    name  "Nguyen Binh Dieu"
+    email "nguyen.binh.dieu@framgia.com"
+    password "12345678"
+    password_confirmation "12345678"
+    role 1
+  end
+
   factory :trainee1, class: User do
     name  "Kenny Sang"
     email "ly.xuan.sang@gmail.com"

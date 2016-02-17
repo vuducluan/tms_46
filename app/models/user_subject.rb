@@ -1,4 +1,8 @@
 class UserSubject < ActiveRecord::Base
+  enum status: [:open, :finished]
+  scope :user_course_subject, ->(course_id){where Settings.user_course_subject,
+    course_id: course_id}
+  scope :status, ->{where status: :finished}
   belongs_to :user
   belongs_to :course_subject
   after_update :create_user_task, :create_user_activity_subject

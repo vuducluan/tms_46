@@ -109,7 +109,7 @@ en:
     create_success: "Create an user is successfully!"
     create_failed: "Create an user is failed!"
   course:
-    name: "name"
+    name: "Course's name"
     instruction: "Instruction"
     status: "Status"
     created_at: "Create time"
@@ -134,6 +134,7 @@ en:
     users:
       trainee: "List trainees in course"
       supervisor: "List supervisor in course"
+    progress: "Progress"
   button:
     submit: "Submit"
     add: "Add new"
@@ -161,3 +162,8 @@ en:
   user_mailer:
     report_day_by_day:
       subject: "You've finished task %{task_name} on %{subject_name} in %{course_name}"
+    send_email_to_trainee:
+      subject: "You've %{type} %{course_name}"
+  add_to: "added to"
+  remove_from: "removed from"
+  subject_finished_per_all: "%{subject_finished} / %{subject_all} Subjects"
