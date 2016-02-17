@@ -32,7 +32,7 @@
           <td>
             <% unless current_user.has_course_subject_task? course_subject_task %>
               <%= user.fields_for :user_tasks, course_subject_task.user_tasks.build do |t| %>
-                <%= t.check_box :course_subject_task_id, {checked: false}, course_subject_task.task.id, 0 %>
+                <%= t.check_box :course_subject_task_id, {checked: false}, course_subject_task.id, 0 %>
               <% end %>
             <% end %>
           </td>

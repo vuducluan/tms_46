@@ -6,7 +6,6 @@ class UserTask < ActiveRecord::Base
 
   private
   def create_user_activity_task
-    user.activities.create user: user, target: course_subject_task.task.id,
-      type_activity: 0, user_name: user.name
+    UserTaskService.instance.create_user_activity_task self
   end
 end

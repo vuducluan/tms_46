@@ -5,12 +5,14 @@ class CourseSubject < ActiveRecord::Base
 
   has_many :course_subject_tasks, dependent: :destroy
   has_many :tasks, through: :course_subject_tasks, dependent: :destroy
-  has_many :user_subjects
+  has_many :user_subjects, dependent: :destroy
   has_many :users, through: :user_subjects, dependent: :destroy
 
   accepts_nested_attributes_for :user_subjects, allow_destroy: true
 
-  after_create :create_course_subject_tasks
+  after_create ->{CourseSubjectService.instance.create_course_subject_tasks self}
+
+  scope :by_user, ->(user_id){where Settings.course_subject.QUERY, user_id: user_id}
 
   def has_user? user
     users.include? user
@@ -18,13 +20,5 @@ class CourseSubject < ActiveRecord::Base
 
   def user_subject_of user
     user_subjects.find_by user_id: user.id
-  end
-
-  private
-  def create_course_subject_tasks
-    tasks = self.subject.tasks
-    tasks.each do |task|
-      self.course_subject_tasks.create task_id: task.id
-    end
   end
 end
