@@ -1,11 +1,13 @@
 class Course < ActiveRecord::Base
   enum status: [:inactive, :active, :finished]
+
+  has_many :course_subjects
   has_many :user_courses
   has_many :users, through: :user_courses, dependent: :destroy
-  has_many :course_subjects
   has_many :subjects, through: :course_subjects, dependent: :destroy
-  validates :name, presence: true
+
   validates :instruction, presence: true
+  validates :name, presence: true
 
   accepts_nested_attributes_for :user_courses, allow_destroy: true, reject_if:
     proc {|attributes| attributes[:_destroy].blank?}
@@ -29,15 +31,6 @@ class Course < ActiveRecord::Base
   end
 
   def create_course_by user
-    Course.transaction do
-      begin
-        self.save!
-        self.user_courses.create! user_id: user.id
-        return true
-      rescue
-        raise ActiveRecord::Rollback
-        return false
-      end
-    end
+    CourseService.instance.create_course_by self, user
   end
 end

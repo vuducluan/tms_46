@@ -11,6 +11,11 @@
     <hr />
     <p><%= @course.instruction %></p>
     <h1><%= t "course.subjects", course_name: @course.name %></h1>
+      <%= search_form_for @q, url: admin_course_path(@course), html: {method: :get} do |f| %>
+        <%= f.text_field :subject_name_cont %>
+        <%= f.select :status_eq, options_for_select(CourseSubject.statuses, selected: 1), {include_blank: "all"} %>
+        <%= f.submit t("button.search"), class: "btn btn-primary btn-default" %>
+      <% end %>
       <table class="table table-striped">
         <thead>
           <tr>

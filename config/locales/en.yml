@@ -148,6 +148,7 @@ en:
     finish: "Finish"
     active: "active"
     inactive: "inactive"
+    search: "Search"
   finish_task: "Finished task!"
   finish_task_error: "Error!"
   flash:

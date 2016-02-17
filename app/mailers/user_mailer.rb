@@ -10,6 +10,7 @@ class UserMailer < ApplicationMailer
   def send_email_to_trainee user, course, added
     @greeting = t "hi", user_name: user.name
     type = added ? t("add_to") : t("remove_from")
-    mail to: user.email, subject: t("user_mailer.send_email_to_trainee.subject",type: type, course_name: course.name)
+    mail to: user.email, subject: t("user_mailer.send_email_to_trainee.subject",
+      type: type, course_name: course.name)
   end
 end
