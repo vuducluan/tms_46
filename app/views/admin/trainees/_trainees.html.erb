@@ -1,0 +1,20 @@
+<% users.each do |user| %>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= link_to user.email, user %></td>
+    <td><%= user.name %></td>
+    <td><%= t "ago", time: time_ago_in_words(user.created_at) %></td>
+    <td><%= t "ago", time: time_ago_in_words(user.updated_at) %></td>
+    <td>
+      <%= f.fields_for :user_courses, @course.user_courses.build do |builder| %>
+        <% builder.object_name="course[user_courses_attributes][#{user.id}]" %>
+
+        <%= builder.check_box :_destroy, {checked:
+          @course.has_user?(user), disabled: user == current_user}, 0, 1 %>
+        <%= builder.hidden_field :id, value:
+          @course.user_course_of(user).id if @course.user_course_of(user).present? %>
+        <%= builder.hidden_field :user_id, value: user.id %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

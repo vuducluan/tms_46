@@ -1,4 +1,5 @@
-<tr class="user">
+ <tr class="user">
+  <td><%= user.id %></td>
   <td><%= link_to user.email, [:admin, user] %></td>
   <td><%= user.name %></td>
   <td><%= t "ago", time: time_ago_in_words(user.created_at) %></td>
