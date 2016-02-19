@@ -26,6 +26,8 @@ gem "factory_girl_rails"
 gem "factory_girl"
 gem "mysql2", "~> 0.4.2"
 gem "ransack"
+gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
+gem 'jquery-turbolinks'
 
 group :development, :test do
   gem "byebug"

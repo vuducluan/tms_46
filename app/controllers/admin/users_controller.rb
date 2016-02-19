@@ -2,8 +2,6 @@ class Admin::UsersController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @q = @users.search params[:q]
-    @users = @q.result.page(params[:page]).per Settings.per_page
   end
 
   def create

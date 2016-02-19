@@ -3,7 +3,7 @@ class Admin::TraineesController < ApplicationController
 
   def index
     @users = User.trainee_users
-    @q = @users.search params[:q]
-    @users = @q.result.page(params[:page]).per Settings.per_page
+    # @q = @users.search params[:q]
+    # @users = @q.result.page(params[:page]).per Settings.per_page
   end
 end
