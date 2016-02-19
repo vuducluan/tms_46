@@ -1,0 +1,4 @@
+'<%= form_for [:admin, @course] do |f| %>'
+  $(".page").append("<%= escape_javascript(render 'trainees', users: @users, f: f)%>");
+'<% end %>'
+$("#load_more_link").replaceWith("<%= escape_javascript(link_to_next_page(@users, 'Load More', remote: true, id: 'load_more_link'))%>")

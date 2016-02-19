@@ -4,6 +4,10 @@ class Admin::UsersController < ApplicationController
   def index
     @q = @users.search params[:q]
     @users = @q.result.page(params[:page]).per Settings.per_page
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
