@@ -1,16 +1,16 @@
 <div class="row">
   <div class="col-md-2">
     <%= image_tag Settings.course.course_image, size: Settings.course.size %>
-    <h1><%= @course.name %></h1>
+    <h2><%= @course.name %></h2>
     <%= link_to t("list_trainee"), admin_course_trainees_path(@course), class: "btn btn-primary btn-default" %>
     <%= link_to t("list_supervisor"), admin_course_supervisors_path(@course), class: "btn btn-primary btn-default" %>
     <%= link_to t("list_subject"), admin_course_course_subjects_path(@course), class: "btn btn-primary btn-default" %>
   </div>
   <div class="col-md-8">
-    <h1><%= t "overview" %></h1>
+    <h2><%= t "overview" %></h2>
     <hr />
     <p><%= @course.instruction %></p>
-    <h1><%= t "course.subjects", course_name: @course.name %></h1>
+    <h2><%= t "course.subjects", course_name: @course.name %></h2>
       <%= search_form_for @q, url: admin_course_path(@course), html: {method: :get} do |f| %>
         <%= f.text_field :subject_name_cont %>
         <%= f.select :status_eq, options_for_select(CourseSubject.statuses, selected: 1), {include_blank: "all"} %>

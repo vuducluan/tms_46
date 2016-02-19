@@ -1,9 +1,9 @@
-<h1><%= t "overview" %></h1>
+<h2><%= t "overview" %></h2>
 <hr />
-<h1><%= @course_subject.subject.name %></h1>
+<h2><%= @course_subject.subject.name %></h2>
 <p><%= @course_subject.subject.instruction %></p>
 <hr />
-<h1><%= t "subject.tasks" %></h1>
+<h2><%= t "subject.tasks" %></h2>
 <%= form_for current_user do |user| %>
   <table class="table table-striped">
     <thead>
@@ -40,5 +40,5 @@
       <% end %>
     </tbody>
   </table>
-  <%= user.submit class: "btn btn-primary" %>
+  <%= user.submit t("update"), class: "btn btn-primary" %>
 <% end %>

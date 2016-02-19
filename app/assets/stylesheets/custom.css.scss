@@ -109,11 +109,15 @@ h1 {
   font-weight: bold;
   margin-top: 5px;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  margin-left: 130px;
+}
+
+h2 {
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
 }
 
 a {
   text-decoration: none;
-  color: #4A4A4A !important;
 }
 
 a:hover{
@@ -216,3 +220,4 @@ table tr:hover td {
   background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));
   background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);
 }
+

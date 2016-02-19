@@ -8,10 +8,12 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update_attributes user_params
-      flash[:success] = t "finish_task"
-    else
-      flash[:warning] = t "finish_task_error"
+    if params[:user].present?
+      if @user.update_attributes user_params
+        flash[:success] = t "finish_task"
+      else
+        flash[:warning] = t "finish_task_error"
+      end
     end
     redirect_to :back
   end

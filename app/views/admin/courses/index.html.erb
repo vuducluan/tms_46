@@ -1,4 +1,4 @@
-<h1><%= t "courses" %></h1>
+<h2><%= t "courses" %></h2>
 <%= link_to t("course.create"), new_admin_course_path, class: "btn btn-primary" %>
 <%= search_form_for [:admin, @q] do |f| %>
   <%= f.text_field :name_cont %>
