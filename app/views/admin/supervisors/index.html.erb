@@ -12,27 +12,11 @@
         <th><%= t "button.action" %></th>
       </tr>
     </thead>
-    <tbody>
-      <% @users.each_with_index do |user, index| %>
-        <tr>
-          <td><%= index + 1 %></td>
-          <td><%= link_to user.email, user %></td>
-          <td><%= user.name %></td>
-          <td><%= t "ago", time: time_ago_in_words(user.created_at) %></td>
-          <td><%= t "ago", time: time_ago_in_words(user.updated_at) %></td>
-          <td>
-            <%= f.fields_for :user_courses, user.user_courses.build do |builder| %>
-              <%= builder.check_box :_destroy, {checked:
-                @course.has_user?(user), disabled: user == current_user}, 0, 1 %>
-              <%= builder.hidden_field :id, value:
-                @course.user_course_of(user).id if @course.user_course_of(user).present? %>
-              <%= builder.hidden_field :user_id, value: user.id %>
-            <% end %>
-          </td>
-        </tr>
-      <% end %>
-      <%= paginate @users %>
+    <tbody class="page">
+      <%= render "supervisors", f: f %>
     </tbody>
   </table>
 <%= f.submit t("button.add_supervisor"), class: "btn btn-primary btn-default" %>
 <% end %>
+<%= link_to_next_page @users, "Load More", remote: true, id: "load_more_link" %>
+
