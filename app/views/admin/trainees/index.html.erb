@@ -19,10 +19,9 @@
       </tr>
     </thead>
     <tbody class="page">
-      <%= render "trainees", f: f, users: @users %>
+      <%= render "trainees", f: f %>
     </tbody>
   </table>
-<%= f.submit t("button.add_trainee"), class: "btn btn-primary btn-default" %>
+  <%= f.submit t("button.add_trainee"), class: "btn btn-primary btn-default" %>
 <% end %>
 <%= link_to_next_page @users, "Load More", remote: true, id: "load_more_link" %>
-<div></div>

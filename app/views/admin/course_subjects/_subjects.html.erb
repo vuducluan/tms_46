@@ -1,0 +1,18 @@
+<% @subjects.each do |subject| %>
+  <tr>
+    <td><%= subject.id %></td>
+    <td><%= link_to subject.name, admin_subject_path(subject) %></td>
+    <td><%= subject.instruction %></td>
+    <td><%= t "ago", time: time_ago_in_words(subject.created_at) %></td>
+    <td><%= t "ago", time: time_ago_in_words(subject.updated_at) %></td>
+    <td>
+      <%= f.fields_for :course_subjects, @course.course_subjects.build do |builder| %>
+        <% builder.object_name="course[course_subjects_attributes][#{subject.id}]" %>
+        <%= builder.check_box :_destroy, {checked: @course.has_subject?(subject)}, 0, 1 %>
+        <%= builder.hidden_field :id, value:
+          @course.course_subject_of(subject).id if @course.course_subject_of(subject).present? %>
+        <%= builder.hidden_field :subject_id, value: subject.id %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

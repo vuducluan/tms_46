@@ -6,6 +6,10 @@ class Admin::CourseSubjectsController < ApplicationController
     @q = Subject.search params[:q]
     @subjects = @q.result.page(params[:page]).per Settings.per_page
     @course_subjects = @course.course_subjects
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
