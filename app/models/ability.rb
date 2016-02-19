@@ -18,6 +18,7 @@ class Ability
       can :show, Course do |course|
         course.active?
       end
+      can :read, CourseSubject
       can :show, CourseSubject do |course_subject|
         course_subject.active?
       end

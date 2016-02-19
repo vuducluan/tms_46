@@ -1,0 +1,12 @@
+<tr class="user">
+  <td><%= link_to user.email, [:admin, user] %></td>
+  <td><%= user.name %></td>
+  <td><%= t "ago", time: time_ago_in_words(user.created_at) %></td>
+  <td><%= t "ago", time: time_ago_in_words(user.updated_at) %></td>
+  <td>
+    <%= link_to t("button.edit"), edit_admin_user_path(user), class: "btn btn-primary" %>
+    <%= link_to t("button.delete"), admin_user_path(user),
+      method: :delete, data: {confirm: t("alert")}, class:
+      "btn btn-default btn-primary" %>
+  </td>
+</tr>
